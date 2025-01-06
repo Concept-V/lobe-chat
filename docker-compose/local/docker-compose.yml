@@ -3,6 +3,7 @@ services:
   network-service:
     image: alpine
     container_name: lobe-network
+    restart: always
     ports:
       - '${MINIO_PORT}:${MINIO_PORT}' # MinIO API
       - '9001:9001' # MinIO Console
@@ -15,6 +16,7 @@ services:
   postgresql:
     image: pgvector/pgvector:pg16
     container_name: lobe-postgres
+    restart: always
     ports:
       - '5432:5432'
     volumes:
@@ -27,13 +29,13 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-    restart: always
     networks:
       - lobe-network
 
   minio:
     image: minio/minio
     container_name: lobe-minio
+    restart: always
     network_mode: 'service:network-service'
     volumes:
       - './s3_data:/etc/minio/data'
@@ -41,7 +43,6 @@ services:
       - 'MINIO_ROOT_USER=${MINIO_ROOT_USER}'
       - 'MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}'
       - 'MINIO_API_CORS_ALLOW_ORIGIN=http://localhost:${LOBE_PORT}'
-    restart: always
     command: >
       server /etc/minio/data --address ":${MINIO_PORT}" --console-address ":9001"
 
@@ -49,6 +50,7 @@ services:
   casdoor:
     image: casbin/casdoor
     container_name: lobe-casdoor
+    restart: always
     entrypoint: /bin/sh -c './server --createDatabase=true'
     network_mode: 'service:network-service'
     depends_on:
@@ -62,10 +64,20 @@ services:
       runmode: 'dev'
     volumes:
       - ./init_data.json:/init_data.json
+      
+  server:
+    container_name: python-api-server
+    restart: always
+    build:
+      context: ./plugins/project-vi/api
+      dockerfile: ./Dockerfile
+    ports:
+      - 3400:3400
 
   lobe:
     image: lobehub/lobe-chat-database
     container_name: lobe-chat
+    restart: always
     network_mode: 'service:network-service'
     depends_on:
       postgresql:
@@ -76,7 +88,6 @@ services:
         condition: service_started
       casdoor:
         condition: service_started
-
     environment:
       - 'APP_URL=http://localhost:3210'
       - 'NEXT_AUTH_SSO_PROVIDERS=casdoor'
@@ -90,9 +101,14 @@ services:
       - 'S3_PUBLIC_DOMAIN=http://localhost:${MINIO_PORT}'
       - 'S3_ENABLE_PATH_STYLE=1'
       - 'LLM_VISION_IMAGE_USE_BASE64=1'
+      - 'OPENAI_API_KEY=sk-proj-3WSrWs7MFkzbuLHbRX9QT3BlbkFJoip4fdbu5VwM3slHcE5y'
+      - 'OPENAI_MODEL_LIST=o1-preview,o1-mini,gpt-4o,gpt-4o-mini,gpt-4-turbo,gpt-4,gpt-3.5-turbo'
+      - 'OPENAI_PROXY_URL=https://api.openai.com/v1'
+      - 'PERPLEXITY_API_KEY=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'
+      - 'ANTHROPIC_API_KEY=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'
+      - 'GOOGLE_API_KEY=AIzaSyApovz9WhSb0BVxIwJ6FlQAcDHs5Z-0Hmc'
     env_file:
       - .env
-    restart: always
 
 volumes:
   data:

@@ -1,0 +1,28 @@
+{
+  "name": "claude-command-center",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.x",
+    "@emotion/react": "^11.x",
+    "@emotion/styled": "^11.x",
+    "@mui/material": "^5.x",
+    "@mui/icons-material": "^5.x",
+    "axios": "^1.x",
+    "zustand": "^4.x"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.x",
+    "vite": "^4.x",
+    "typescript": "^5.x",
+    "@types/react": "^18.x",
+    "@types/react-dom": "^18.x"
+  }
+}

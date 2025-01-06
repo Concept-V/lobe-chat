@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/@lobehub/chat-plugin-sdk/schema.json",
+  "api": [],
+  "author": "ConceptV",
+  "createdAt": "2024-07-01",
+  "gateway": "http://localhost:3400/api/gateway",
+  "homepage": "https://www.conceptv.com.au/",
+  "identifier": "project-vi",
+  "meta": {
+    "avatar": "🚀",
+    "tags": ["file operation", "analyse", "codebase rewite"],
+    "title": "Project Vi",
+    "description": "A multifunctional plugin created by ConceptV"
+  },
+  "openapi": "http://localhost:3400/swagger.json",
+  "version": "1"
+}

@@ -1,0 +1,85 @@
+name: lobe-chat-database
+services:
+  postgresql:
+    image: pgvector/pgvector:pg16
+    container_name: lobe-postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - './data:/var/lib/postgresql/data'
+    environment:
+      - 'POSTGRES_DB=${LOBE_DB_NAME}'
+      - 'POSTGRES_PASSWORD=${POSTGRES_PASSWORD}'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: always
+
+  minio:
+    image: minio/minio
+    container_name: lobe-minio
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - './s3_data:/etc/minio/data'
+    environment:
+      - 'MINIO_ROOT_USER=${MINIO_ROOT_USER}'
+      - 'MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}'
+      - 'MINIO_DOMAIN=lobe-s3-api.example.com'
+      - 'MINIO_API_CORS_ALLOW_ORIGIN=${MINIO_API_CORS_ALLOW_ORIGIN}'
+    restart: always
+    command: >
+      server /etc/minio/data --address ":9000" --console-address ":9001"
+
+
+  casdoor:
+    image: casbin/casdoor
+    container_name: lobe-casdoor
+    entrypoint: /bin/sh -c './server --createDatabase=true'
+    ports:
+      - '8000:8000'
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    environment:
+      RUNNING_IN_DOCKER: 'true'
+      driverName: 'postgres'
+      dataSourceName: 'user=postgres password=${POSTGRES_PASSWORD} host=postgresql port=5432 sslmode=disable dbname=casdoor'
+      origin: '${AUTH_CASDOOR_ISSUER}'
+      runmode: 'dev'
+    volumes:
+      - ./init_data.json:/init_data.json
+
+  lobe:
+    image: lobehub/lobe-chat-database
+    container_name: lobe-chat
+    ports:
+      - '3210:3210'
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      minio:
+        condition: service_started
+      casdoor:
+        condition: service_started
+    env_file:
+      - .env
+    restart: always
+
+  server:
+    container_name: python-api-server
+    ports:
+      - '${API_SERVER_PORT:-3400}:3400'
+    build:
+      context: ./plugins/project-vi
+      dockerfile: ./Dockerfile
+    restart: always
+
+volumes:
+  data:
+    driver: local
+  s3_data:
+    driver: local

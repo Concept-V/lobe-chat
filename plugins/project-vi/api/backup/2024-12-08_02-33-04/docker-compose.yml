@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./src/frontend
+      dockerfile: Dockerfile
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src/frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - NPM_CONFIG_PREFIX=/app/.npm-global
+    command: npm run dev
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: ./src/api
+      dockerfile: Dockerfile
+    working_dir: /app
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./src/api:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - NPM_CONFIG_PREFIX=/app/.npm-global
+    command: npm run dev
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:
