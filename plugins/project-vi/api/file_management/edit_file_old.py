@@ -1,9 +1,10 @@
 from flask_restx import Resource
-from flask import jsonify, request
+from flask import jsonify
 import os
 import shutil
 from datetime import datetime
-from model import api, edit_file_model
+from models import api, edit_file_model
+
 
 @api.doc(
     methods=['POST'],
@@ -11,8 +12,7 @@ from model import api, edit_file_model
     params={
     'file_path': 'The path of the file to edit', 
     'content': 'The new content to write into the file', 
-    'backup': 'Backup old file content to folder named `backup`'
-})
+    'backup': 'Backup old file content to folder named `backup`'})
 class EditFile(Resource):
     @api.expect(edit_file_model)
     @api.response(200, 'File edited successfully')
@@ -28,7 +28,7 @@ class EditFile(Resource):
             return jsonify({"error": "File not found."}), 404
         
         try:
-            if backup == True:
+            if backup is True:
                 current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
                 backup_directory = os.path.join("./backup", current_time)
 
@@ -55,4 +55,3 @@ class EditFile(Resource):
             return jsonify({"error": str(object=e)}), 500
 
         return jsonify({"message": "File edited successfully.", "backup": backup_file_path if backup_directory else None }), 200
-    

@@ -2,7 +2,8 @@ from flask_restx import Resource
 from flask import jsonify
 import os
 import shutil
-from model import api, copy_model
+from models import api, copy_model
+
 
 @api.doc(
     methods=['POST'],
