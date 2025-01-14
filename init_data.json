@@ -35,8 +35,8 @@
       "name": "app-built-in",
       "createdTime": "2024-09-09T09:26:06Z",
       "displayName": "LobeChat",
-      "logo": "https://lobehub.com/icon-192x192.png",
-      "homepageUrl": "https://lobehub.com",
+      "logo": "https://vi-4-api.ngrok.io/logo",
+      "homepageUrl": "https://conceptv.com.au",
       "description": "LobeChat",
       "organization": "built-in",
       "cert": "cert-built-in",
@@ -238,7 +238,7 @@
       "isShared": false,
       "clientId": "a387a4892ee19b1a2249",
       "clientSecret": "dbf205949d704de81b0b5b3603174e23fbecc354",
-      "redirectUris": ["http://localhost:3210/api/auth/callback/casdoor"],
+      "redirectUris": ["https://vi-4.ngrok.io/api/auth/callback/casdoor", "http://localhost:3210/api/auth/callback/casdoor"],
       "tokenFormat": "JWT",
       "tokenSigningMethod": "",
       "tokenFields": [],
@@ -257,7 +257,7 @@
       "formCssMobile": "",
       "formOffset": 2,
       "formSideHtml": "",
-      "formBackgroundUrl": "",
+      "formBackgroundUrl": "https://assets-global.website-files.com/5e9288c5639000b030d15545/65c1d015edb41ba6c45c7f96_Background_Living.jpg",
       "failedSigninLimit": 5,
       "failedSigninFrozenTime": 15
     }

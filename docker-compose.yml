@@ -28,12 +28,27 @@ services:
     environment:
       - 'MINIO_ROOT_USER=${MINIO_ROOT_USER}'
       - 'MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}'
-      - 'MINIO_DOMAIN=lobe-s3-api.example.com'
-      - 'MINIO_API_CORS_ALLOW_ORIGIN=${MINIO_API_CORS_ALLOW_ORIGIN}'
+      - 'MINIO_DOMAIN=${S3_PUBLIC_DOMAIN}'
+      - 'MINIO_API_CORS_ALLOW_ORIGIN=${MINIO_API_CORS_ALLOW_ORIGIN}' # Your LobeChat's domain name.
+    env_file:
+      - .env
     restart: always
     command: >
       server /etc/minio/data --address ":9000" --console-address ":9001"
 
+  zitadel:
+    image: ghcr.io/zitadel/zitadel:latest
+    container_name: lobe-zitadel
+    ports:
+      - 8080:8080
+    volumes:
+      - ./zitadel-config.yaml:/zitadel-config.yaml:ro
+      - ./zitadel-init-steps.yaml:/zitadel-init-steps.yaml:ro
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    restart: always
+    command: start-from-init --config /zitadel-config.yaml --steps /zitadel-init-steps.yaml --masterkey "cft3Tekr/rQBOqwoQSCPoncA9BHbn7QJ" --tlsMode external #MasterkeyNeedsToHave32Characters
 
   casdoor:
     image: casbin/casdoor
@@ -49,7 +64,7 @@ services:
       driverName: 'postgres'
       dataSourceName: 'user=postgres password=${POSTGRES_PASSWORD} host=postgresql port=5432 sslmode=disable dbname=casdoor'
       origin: '${AUTH_CASDOOR_ISSUER}'
-      runmode: 'dev'
+      runmode: 'prod'
     volumes:
       - ./init_data.json:/init_data.json
 
@@ -59,12 +74,9 @@ services:
     ports:
       - '3210:3210'
     depends_on:
-      postgresql:
-        condition: service_healthy
-      minio:
-        condition: service_started
-      casdoor:
-        condition: service_started
+      - postgresql
+      - minio
+      - casdoor
     env_file:
       - .env
     restart: always
