@@ -1,2 +1,2 @@
 from .app import app
-from .model import api
+from .models import api

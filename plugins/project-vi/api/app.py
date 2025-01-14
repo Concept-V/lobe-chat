@@ -1,6 +1,6 @@
 from flask import Flask, send_from_directory
 from flask_cors import CORS
-from model import api
+from models import api
 from test import HelloWorld
 from file_management import (
     ReadFile, WriteFile, ListFiles, EditFile,
