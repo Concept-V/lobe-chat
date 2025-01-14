@@ -2,11 +2,7 @@ from flask import Flask, send_from_directory
 from flask_cors import CORS
 from models import api
 from test import HelloWorld
-from file_management import (
-    ReadFile, WriteFile, ListFiles, EditFile,
-    CreateDirectory, DeletePath, CopyPath,
-    MovePath
-)
+from file_management import *
 from gateway.gateway import handle_gateway
 
 app = Flask(__name__)
@@ -32,6 +28,8 @@ ns.add_resource(
 ns.add_resource(DeletePath, '/delete_path', endpoint='post_delete_path')
 ns.add_resource(CopyPath, '/copy_path', endpoint='post_copy_path')
 ns.add_resource(MovePath, '/move_path', endpoint='post_move_path')
+
+# MCP extensions from Claude
 
 
 # Serving static files

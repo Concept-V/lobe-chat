@@ -1,6 +1,6 @@
 from flask_restx import Resource
 from flask import jsonify
-from model import api, hello_model
+from models import api, hello_model
 
 @api.doc(
     methods=['GET'],
