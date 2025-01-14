@@ -3,9 +3,9 @@ FirstInstance:
   Org:
     Human:
       # use the loginname root@zitadel.localhost, replace localhost with your configured external domain
-      Username: 'root'
+      Username: 'root' #root@zitadel.vi-4-auth.ngrok.io
       # The password must be 8 characters or more and must contain uppercase letters, lowercase letters, symbols, and numbers. The first login will require a password change. 
       Password: 'Password1!'
       Email:
         # Optional, if set, can be used to log in with email.
-        Address: 'example@zitadel.com' # ZITADEL_FIRSTINSTANCE_ORG_HUMAN_EMAIL_ADDRESS    
+        Address: 'nick.p@conceptv.com.au' # ZITADEL_FIRSTINSTANCE_ORG_HUMAN_EMAIL_ADDRESS    

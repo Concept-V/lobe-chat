@@ -38,6 +38,9 @@ RUN adduser \
 RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=requirements.txt,target=requirements.txt \
     python -m pip install -r requirements.txt
+    
+# Set permissions for appuser to access the app directory
+RUN chown -R appuser:appuser /app
 
 # Switch to the non-privileged user to run the application.
 USER appuser
@@ -49,4 +52,4 @@ COPY . .
 EXPOSE 3400
 
 # Run the application.
-CMD gunicorn 'api.app:app' --bind=0.0.0.0:3400
+CMD gunicorn --workers 4 --bind=0.0.0.0:3400 'api.app:app'

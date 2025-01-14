@@ -3,7 +3,7 @@
   "api": [],
   "author": "ConceptV",
   "createdAt": "2024-07-01",
-  "gateway": "http://localhost:3400/api/gateway",
+  "gateway": "https://vi-4-api.ngrok.io/api/gateway",
   "homepage": "https://www.conceptv.com.au/",
   "identifier": "project-vi",
   "meta": {
@@ -12,6 +12,6 @@
     "title": "Project Vi",
     "description": "A multifunctional plugin created by ConceptV"
   },
-  "openapi": "http://localhost:3400/swagger.json",
+  "openapi": "https://vi-4-api.ngrok.io/swagger.json",
   "version": "1"
 }

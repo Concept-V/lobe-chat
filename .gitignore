@@ -68,3 +68,7 @@ public/swe-worker*
 *.patch
 *.pdf
 vertex-ai-key.json
+
+# Data should never be uploaded to git
+data
+s3_data

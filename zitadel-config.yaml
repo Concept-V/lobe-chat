@@ -1,0 +1,35 @@
+Log:
+  Level: 'info'
+
+ExternalPort: 443 
+ExternalDomain: vi-4-auth.ngrok.io #Your zitadel's domain name
+ExternalSecure: true 
+TLS:
+  Enabled: false # ZITADEL_TLS_ENABLED
+
+# If not using the docker compose example, adjust these values for connecting ZITADEL to your PostgreSQL
+Database:
+  postgres:
+    Host: postgresql
+    Port: 5432
+    Database: zitadel
+    User:
+      Username: 'zitadel'
+      Password: 'zitadel'
+      SSL:
+        Mode: 'disable'
+    Admin:
+      Username: 'postgres'
+      Password: 'uWNZugjBqixf8dxC' #postgres password
+      SSL:
+        Mode: 'disable'
+
+notification:
+  email:
+    smtp:
+      host: smtp.gmail.com           # Your SMTP server
+      port: 587                      # Typically 587 for STARTTLS
+      user: info@conceptv.com.au
+      password: your-smtp-password
+      senderAddress: info@conceptv.com.au
+      senderName: "Vi from ConceptV"

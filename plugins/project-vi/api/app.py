@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, jsonify
 from flask_cors import CORS
 from model import api
 from test import HelloWorld
@@ -8,9 +8,17 @@ from file_management import (
     MovePath
 )
 from gateway.gateway import handle_gateway
+import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/*": {
+        "origins": "*",  # Allow all origins
+        "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization", "X-Requested-With"]
+        }
+    },
+)
 api.init_app(app)
 
 ns = api.namespace('api', description='File operations')
@@ -40,6 +48,11 @@ def serve_manifest():
     return send_from_directory('../static', 'manifest.json')
 
 
+@app.route('/logo', methods=['GET'])
+def serve_logo():
+    return send_from_directory('../static', 'logo_black.svg')
+
+
 # Gateway
 @app.route('/api/gateway', methods=['GET', 'POST', 'PUT', 'DELETE'])
 def serve_gateway():
@@ -47,4 +60,4 @@ def serve_gateway():
 
 
 if __name__ == '__main__':
-    app.run(port=3400, debug=True)
+    app.run(host="0.0.0.0", port=3400, debug=True)
