@@ -17,6 +17,12 @@ from .obsidian import (
     resource_list_model
 )
 
+from .sqlite import (
+    execute_query_model, 
+    store_data_model, 
+    list_tables_response
+)
+
 # This allows you to import all models from the models package (from models import *)
 __all__ = [
     'api',
@@ -31,5 +37,8 @@ __all__ = [
     'move_model',
     'advanced_search_model',
     'analyze_connections_model',
-    'resource_list_model'
+    'resource_list_model',
+    'execute_query_model',
+    'store_data_model',
+    'list_tables_response'
 ]

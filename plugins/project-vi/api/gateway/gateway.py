@@ -57,6 +57,7 @@ def handle_gateway():
         destination_path = arguments.get('destination_path')
         return MovePath.post(request, source_path, destination_path)
     
+    # MCP > obsidian
     elif apiName == 'post_advanced_search':
         query = arguments.get('query')
         search_type = arguments.get('search_type', 'text')
@@ -72,6 +73,20 @@ def handle_gateway():
 
     elif apiName == 'get_list_resources':
         return ListResources.get(request)
+
+    # MCP > sqlite
+    elif apiName == 'post_execute_query':
+        query = arguments.get('query')
+        return ExecuteQuery.post(request, query)
+        
+    elif apiName == 'get_list_tables':
+        return ListTables.get(request)
+        
+    elif apiName == 'post_store_data':
+        category = arguments.get('category')
+        content = arguments.get('content')
+        metadata = arguments.get('metadata')
+        return StoreData.post(request, category, content, metadata)
 
     else:
         return jsonify({"error": "Method Not Allowed"}), 405
