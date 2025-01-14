@@ -1,15 +1,7 @@
 from flask import request, jsonify
 from test import HelloWorld
-from file_management import (
-    ReadFile,
-    WriteFile,
-    ListFiles,
-    EditFile,
-    CreateDirectory,
-    DeletePath,
-    CopyPath,
-    MovePath
-)
+from file_management import *
+from mcp_tools import *
 import json
 
 
@@ -64,6 +56,22 @@ def handle_gateway():
         source_path = arguments.get('source_path')
         destination_path = arguments.get('destination_path')
         return MovePath.post(request, source_path, destination_path)
+    
+    elif apiName == 'post_advanced_search':
+        query = arguments.get('query')
+        search_type = arguments.get('search_type', 'text')
+        include_metadata = arguments.get('include_metadata', False)
+        follow_links = arguments.get('follow_links', False)
+        max_depth = arguments.get('max_depth', 1)
+        return AdvancedSearch.post(request, query, search_type, include_metadata, follow_links, max_depth)
+
+    elif apiName == 'post_analyze_connections':
+        note_path = arguments.get('note_path')
+        include_backlinks = arguments.get('include_backlinks', False)
+        return AnalyzeConnections.post(request, note_path, include_backlinks)
+
+    elif apiName == 'get_list_resources':
+        return ListResources.get(request)
 
     else:
         return jsonify({"error": "Method Not Allowed"}), 405
