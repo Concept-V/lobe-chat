@@ -1,7 +1,7 @@
 from flask_restx import Resource
 from flask import jsonify
 import os
-from model import api, create_directory_model
+from models import api, create_directory_model
 
 @api.doc(
     methods=['POST'],

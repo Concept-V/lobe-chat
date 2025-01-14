@@ -1,7 +1,8 @@
 from flask_restx import Resource
 from flask import jsonify
 import os
-from model import api, read_file_model
+from models import api, read_file_model
+
 
 @api.doc(
     methods=['GET'],
@@ -25,7 +26,7 @@ class ReadFile(Resource):
             return jsonify({"error": error_msg}), 404
             
         try:
-            print(f"Opening file in r+ mode")
+            print("Opening file in r+ mode")
             with open(file_path, 'r+', encoding='utf-8') as file:
                 content = file.read()
                 print(f"Successfully read {len(content)} characters")
