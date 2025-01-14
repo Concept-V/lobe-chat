@@ -11,6 +11,12 @@ from .file_management import (
     move_model
 )
 
+from .obsidian import (
+    advanced_search_model,
+    analyze_connections_model,
+    resource_list_model
+)
+
 # This allows you to import all models from the models package (from models import *)
 __all__ = [
     'api',
@@ -22,5 +28,8 @@ __all__ = [
     'create_directory_model',
     'delete_model',
     'copy_model',
-    'move_model'
+    'move_model',
+    'advanced_search_model',
+    'analyze_connections_model',
+    'resource_list_model'
 ]
