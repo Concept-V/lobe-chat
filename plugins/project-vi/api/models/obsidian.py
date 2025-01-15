@@ -37,9 +37,16 @@ analyze_connections_model = api.model('AnalyzeConnections', {
     )
 })
 
-resource_list_model = api.model('Resource', {
+list_resource_model = api.model('Resource', {
     'uri': fields.String(description='Resource URI'),
     'name': fields.String(description='Resource name'),
     'mimeType': fields.String(description='MIME type of the resource'),
     'description': fields.String(description='Resource description')
+})
+
+read_resource_model = api.model('ReadResource', {
+    'uri': fields.String(
+        required=True,
+        description='URI of the resource to read'
+    )
 })

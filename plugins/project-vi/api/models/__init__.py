@@ -14,7 +14,8 @@ from .file_management import (
 from .obsidian import (
     advanced_search_model,
     analyze_connections_model,
-    resource_list_model
+    list_resource_model,
+    read_resource_model
 )
 
 from .sqlite import (
@@ -37,7 +38,8 @@ __all__ = [
     'move_model',
     'advanced_search_model',
     'analyze_connections_model',
-    'resource_list_model',
+    'list_resource_model',
+    'read_resource_model',
     'execute_query_model',
     'store_data_model',
     'list_tables_response'

@@ -73,6 +73,10 @@ def handle_gateway():
 
     elif apiName == 'get_list_resources':
         return ListResources.get(request)
+        
+    elif apiName == 'post_read_resource':
+        uri = arguments.get('uri')
+        return ReadResource.post(request, uri)
 
     # MCP > sqlite
     elif apiName == 'post_execute_query':

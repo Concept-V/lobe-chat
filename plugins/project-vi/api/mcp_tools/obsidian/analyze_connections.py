@@ -1,9 +1,8 @@
 from flask_restx import Resource
 from flask import jsonify
-import re
-from pathlib import Path
 import logging
 from models import api, analyze_connections_model
+from .base import ObsidianBase
 
 logger = logging.getLogger('obsidian-server')
 
@@ -11,43 +10,44 @@ logger = logging.getLogger('obsidian-server')
     methods=['POST'],
     description='Analyze connections between notes in the Obsidian vault'
 )
-class AnalyzeConnections(Resource):
+class AnalyzeConnections(Resource, ObsidianBase):
     @api.expect(analyze_connections_model)
     @api.response(200, 'Success')
     @api.response(404, 'Note not found')
     @api.response(500, 'Internal Server Error')
     def post(self, note_path, include_backlinks=False):
         try:
-            vault_path = Path("D:/06_Project_Vi/extensions/vaults/CodeBase_Test")
-            full_path = vault_path / note_path
+            # Check if note exists
+            note_path = self.vault_path / note_path
+            if not note_path.exists():
+                return jsonify({
+                    "error": f"Note not found: {note_path}"
+                }), 404
             
-            if not full_path.exists():
-                return jsonify({"error": f"Note not found: {note_path}"}), 404
-                
-            content = full_path.read_text(encoding='utf-8')
+            # Read and parse note content
+            content = self.read_file_content(note_path)
+            if not content:
+                return jsonify({
+                    "error": "Could not read note content"
+                }), 500
             
-            # Find links and tags
-            links = re.findall(r'\[\[(.*?)\]\]', content)
-            tags = re.findall(r'#([\w-]+)', content)
-            
-            results = {
-                "links": links,
-                "tags": tags
-            }
+            # Analyze connections
+            connections = self.analyze_note_connections(content["content"])
             
             # Add backlinks if requested
             if include_backlinks:
                 backlinks = []
-                note_name = full_path.stem
-                for file in vault_path.rglob("*.md"):
+                note_name = note_path.stem
+                for file in self.vault_path.rglob("*.md"):
                     if not any(p.startswith('.') for p in file.parts):
-                        file_content = file.read_text(encoding='utf-8')
-                        file_links = re.findall(r'\[\[(.*?)\]\]', file_content)
-                        if note_name in file_links:
-                            backlinks.append(str(file.relative_to(vault_path)))
-                results["backlinks"] = backlinks
+                        file_content = self.read_file_content(file)
+                        if file_content:
+                            file_connections = self.analyze_note_connections(file_content["content"])
+                            if note_name in file_connections["links"]:
+                                backlinks.append(str(file.relative_to(self.vault_path)))
+                connections["backlinks"] = backlinks
             
-            return jsonify(results), 200
+            return jsonify(connections), 200
             
         except Exception as e:
             logger.error(f"Error analyzing connections: {e}")
