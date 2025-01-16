@@ -1,8 +1,9 @@
-from flask import Flask, send_from_directory
+from flask import Flask
 from flask_cors import CORS
 from models import api
-from test import HelloWorld
+from test.hello import Hello
 from file_management import *
+from static import *
 from gateway.gateway import handle_gateway
 
 app = Flask(__name__)
@@ -13,7 +14,7 @@ ns = api.namespace('api', description='File operations')
 
 # Import all the resources and add them to the namespace
 # Test
-ns.add_resource(HelloWorld, '/hello', endpoint='get_hello_world')
+ns.add_resource(Hello, '/hello', endpoint='get_hello_world')
 
 # File management
 ns.add_resource(ReadFile, '/read_file', endpoint='get_read_file')
@@ -33,9 +34,9 @@ ns.add_resource(MovePath, '/move_path', endpoint='post_move_path')
 
 
 # Serving static files
-@app.route('/manifest.json', methods=['GET'])
-def serve_manifest():
-    return send_from_directory('../static', 'manifest.json')
+ns.add_resource(GetLogo, '/logo', endpoint='get_logo')
+ns.add_resource(GetLogoBlack, '/logo_black', endpoint='get_logo_black')
+ns.add_resource(GetManifest, '/manifest', endpoint='get_manifest')
 
 
 # Gateway

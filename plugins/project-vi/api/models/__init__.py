@@ -24,6 +24,12 @@ from .sqlite import (
     list_tables_response
 )
 
+from .static import (
+    get_logo_model,
+    get_logo_black_model,
+    get_manifest_model
+)
+
 # This allows you to import all models from the models package (from models import *)
 __all__ = [
     'api',
@@ -36,6 +42,9 @@ __all__ = [
     'delete_model',
     'copy_model',
     'move_model',
+    'get_logo_model',
+    'get_logo_black_model',
+    'get_manifest_model',
     'advanced_search_model',
     'analyze_connections_model',
     'list_resource_model',

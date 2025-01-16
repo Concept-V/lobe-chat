@@ -1,12 +1,16 @@
 from flask_restx import Resource
-from flask import jsonify
+from flask import Response, jsonify
 from models import api, hello_model
+
 
 @api.doc(
     methods=['GET'],
     description='This endpoint sends a hello message from API. Expects a GET request.'
 )
-class HelloWorld(Resource):
+class Hello(Resource):
     @api.expect(hello_model)
     def get(self):
-        return jsonify({'message': 'Hello world from Flask API!'}), 200 # The dictionary is automatically JSONified
+        response = Response()
+        response = jsonify({'message': 'Hello world from Flask API!'})
+        response.status_code = 200
+        return response
