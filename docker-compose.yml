@@ -89,8 +89,8 @@ services:
     build:
       context: ./plugins/project-vi
       dockerfile: ./Dockerfile
-      volumes:
-        - ./plugins/project-vi:/app
+    volumes:
+      - ./plugins/project-vi:/app
     restart: always
 
 volumes:
