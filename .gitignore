@@ -76,3 +76,7 @@ s3_data
 # Python cache files
 __pycache__
 *.pyc
+
+# We don't want to commit vault files
+*Vault
+The Box
