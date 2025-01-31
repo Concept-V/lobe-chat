@@ -2,7 +2,8 @@ from flask_restx import Resource
 from flask import jsonify
 import os
 import shutil
-from model import api, delete_model
+from models import api, delete_model
+
 
 @api.doc(
     methods=['POST'],
@@ -50,5 +51,6 @@ class DeletePath(Resource):
                     "error": "Directory not empty. Use recursive=true to delete non-empty directories."
                 }), 400
             return jsonify({"error": str(e)}), 500
+        
         except Exception as e:
             return jsonify({"error": str(e)}), 500

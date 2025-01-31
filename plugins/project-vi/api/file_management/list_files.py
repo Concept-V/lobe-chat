@@ -1,7 +1,8 @@
 from flask_restx import Resource
 from flask import jsonify
 import os
-from model import api, list_files_model
+from models import api, list_files_model
+
 
 @api.doc(
     methods=['GET'],

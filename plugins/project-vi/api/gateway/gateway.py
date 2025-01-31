@@ -1,15 +1,10 @@
 from flask import request, jsonify
-from test import HelloWorld
-from file_management import (
-    ReadFile,
-    WriteFile,
-    ListFiles,
-    EditFile,
-    CreateDirectory,
-    DeletePath,
-    CopyPath,
-    MovePath
-)
+from test.hello import Hello
+from file_management import *
+from user import *
+from permissions import *
+from static import *
+# from mcp_tools import *
 import json
 
 
@@ -23,7 +18,7 @@ def handle_gateway():
         return jsonify({"error": "Invalid payload"}), 400
 
     if apiName == 'get_hello_world':
-        return HelloWorld.get(request)
+        return Hello.get(request)
 
     elif apiName == 'get_read_file':
         file_path = arguments.get('file_path')
@@ -64,6 +59,39 @@ def handle_gateway():
         source_path = arguments.get('source_path')
         destination_path = arguments.get('destination_path')
         return MovePath.post(request, source_path, destination_path)
+    
+    elif apiName == 'get_user':
+        username = arguments.get('username')
+        return GetUser.get(request, username)
+    
+    elif apiName == 'post_create_user':
+        username = arguments.get('username')
+        password = arguments.get('password')
+        permissions = arguments.get('permissions')
+        state = arguments.get('state', 'active')
+        return CreateUser.post(request, username, password, permissions, state)
+    
+    elif apiName == 'post_update_user':
+        username = arguments.get('username')
+        permissions = arguments.get('permissions')
+        return UpdateUser.post(request, username, permissions)
+    
+    elif apiName == 'post_delete_user':
+        username = arguments.get('username')
+        return DeleteUser.post(request, username)
+    
+    elif apiName == 'get_permission':
+        username = arguments.get('username')
+        return GetPermission.get(request, username)
+    
+    elif apiName == 'get_logo':
+        return GetLogo.get(request)
+    
+    elif apiName == 'get_logo_black':
+        return GetLogoBlack.get(request)
+    
+    elif apiName == 'get_manifest':
+        return GetManifest.get(request)
 
     else:
         return jsonify({"error": "Method Not Allowed"}), 405

@@ -7,7 +7,7 @@
   "homepage": "https://www.conceptv.com.au/",
   "identifier": "project-vi",
   "meta": {
-    "avatar": "🚀",
+    "avatar": "https://vi-4-api.ngrok.io/api/logo",
     "tags": ["file operation", "analyse", "codebase rewite"],
     "title": "Project Vi",
     "description": "A multifunctional plugin created by ConceptV"

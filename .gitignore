@@ -72,3 +72,11 @@ vertex-ai-key.json
 # Data should never be on git
 data
 s3_data
+
+# Python cache files
+__pycache__
+*.pyc
+
+# We don't want to commit vault files
+*Vault
+The Box
