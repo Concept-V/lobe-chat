@@ -1,6 +1,8 @@
 from flask import request, jsonify
 from test.hello import Hello
 from file_management import *
+from user import *
+from permissions import *
 from static import *
 # from mcp_tools import *
 import json
@@ -58,6 +60,30 @@ def handle_gateway():
         destination_path = arguments.get('destination_path')
         return MovePath.post(request, source_path, destination_path)
     
+    elif apiName == 'get_user':
+        username = arguments.get('username')
+        return GetUser.get(request, username)
+    
+    elif apiName == 'post_create_user':
+        username = arguments.get('username')
+        password = arguments.get('password')
+        permissions = arguments.get('permissions')
+        state = arguments.get('state', 'active')
+        return CreateUser.post(request, username, password, permissions, state)
+    
+    elif apiName == 'post_update_user':
+        username = arguments.get('username')
+        permissions = arguments.get('permissions')
+        return UpdateUser.post(request, username, permissions)
+    
+    elif apiName == 'post_delete_user':
+        username = arguments.get('username')
+        return DeleteUser.post(request, username)
+    
+    elif apiName == 'get_permission':
+        username = arguments.get('username')
+        return GetPermission.get(request, username)
+    
     elif apiName == 'get_logo':
         return GetLogo.get(request)
     
@@ -66,41 +92,6 @@ def handle_gateway():
     
     elif apiName == 'get_manifest':
         return GetManifest.get(request)
-    
-    # # MCP > obsidian
-    # elif apiName == 'post_advanced_search':
-    #     query = arguments.get('query')
-    #     search_type = arguments.get('search_type', 'text')
-    #     include_metadata = arguments.get('include_metadata', False)
-    #     follow_links = arguments.get('follow_links', False)
-    #     max_depth = arguments.get('max_depth', 1)
-    #     return AdvancedSearch.post(request, query, search_type, include_metadata, follow_links, max_depth)
-
-    # elif apiName == 'post_analyze_connections':
-    #     note_path = arguments.get('note_path')
-    #     include_backlinks = arguments.get('include_backlinks', False)
-    #     return AnalyzeConnections.post(request, note_path, include_backlinks)
-
-    # elif apiName == 'get_list_resources':
-    #     return ListResources.get(request)
-        
-    # elif apiName == 'post_read_resource':
-    #     uri = arguments.get('uri')
-    #     return ReadResource.post(request, uri)
-
-    # # MCP > sqlite
-    # elif apiName == 'post_execute_query':
-    #     query = arguments.get('query')
-    #     return ExecuteQuery.post(request, query)
-        
-    # elif apiName == 'get_list_tables':
-    #     return ListTables.get(request)
-        
-    # elif apiName == 'post_store_data':
-    #     category = arguments.get('category')
-    #     content = arguments.get('content')
-    #     metadata = arguments.get('metadata')
-    #     return StoreData.post(request, category, content, metadata)
 
     else:
         return jsonify({"error": "Method Not Allowed"}), 405

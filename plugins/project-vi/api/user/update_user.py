@@ -1,9 +1,10 @@
 from flask_restx import Resource
 from flask import jsonify
-import json
 from pathlib import Path
-import logging
 from models import api, update_user_model
+import hashlib
+import json
+import logging
 
 logger = logging.getLogger('user-server')
 
@@ -16,10 +17,17 @@ class UpdateUser(Resource):
     @api.response(200, 'User updated')
     @api.response(404, 'User not found')
     @api.response(400, 'Bad Request')
-    def put(self, username, permissions=None, state=None):
+    def put(self, username, password, permissions=None, state=None):
         try:
             if not username:
                 return jsonify({"error": "Username is required"}), 400
+            
+            # Hash the provided password
+            hashed_password = hashlib.sha256(password.encode()).hexdigest()
+
+            # Verify password
+            if not password or hashed_password != user_data.get('password'):
+                return jsonify({"error": "Invalid credentials"}), 401
             
             if username == 'admin':
                 return jsonify({"error": "Cannot update admin user"}), 403

@@ -3,6 +3,8 @@ from flask_cors import CORS
 from models import api
 from test.hello import Hello
 from file_management import *
+from user import *
+from permissions import *
 from static import *
 from gateway.gateway import handle_gateway
 
@@ -32,6 +34,12 @@ ns.add_resource(MovePath, '/move_path', endpoint='post_move_path')
 
 # MCP extensions from Claude
 
+# User management & Permissions
+ns.add_resource(GetUser, '/get_user', endpoint='get_user')
+ns.add_resource(CreateUser, '/create_user', endpoint='post_create_user')
+ns.add_resource(UpdateUser, '/update_user', endpoint='post_update_user')
+ns.add_resource(DeleteUser, '/delete_user', endpoint='post_delete_user')
+ns.add_resource(GetPermission, '/get_permission', endpoint='get_permission')
 
 # Serving static files
 ns.add_resource(GetLogo, '/logo', endpoint='get_logo')
