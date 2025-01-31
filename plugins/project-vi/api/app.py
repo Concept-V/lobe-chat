@@ -45,6 +45,7 @@ ns.add_resource(GetPermission, '/get_permission', endpoint='get_permission')
 ns.add_resource(GetLogo, '/logo', endpoint='get_logo')
 ns.add_resource(GetLogoBlack, '/logo_black', endpoint='get_logo_black')
 ns.add_resource(GetManifest, '/manifest', endpoint='get_manifest')
+ns.add_resource(GetManifestBeta, '/manifest_beta', endpoint='get_manifest_beta')
 
 
 # Gateway

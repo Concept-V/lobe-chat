@@ -92,6 +92,9 @@ def handle_gateway():
     
     elif apiName == 'get_manifest':
         return GetManifest.get(request)
+    
+    elif apiName == 'get_manifest_beta':
+        return GetManifestBeta.get(request)
 
     else:
         return jsonify({"error": "Method Not Allowed"}), 405
