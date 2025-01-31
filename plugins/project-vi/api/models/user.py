@@ -37,6 +37,10 @@ update_user_model = api.model('UpdateUser', {
         required=True,
         description='Username'
     ),
+    'password': fields.String(
+        required=True,
+        description='Password'
+    ),
     'permissions': fields.Integer(
         description='User permissions as integer'
     ),
