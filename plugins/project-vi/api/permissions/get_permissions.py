@@ -15,7 +15,7 @@ class GetPermission(Resource):
     @api.response(500, 'Internal Server Error')
     def get(self, username):
         try:
-            user_path = Path("./store") / f"{username}.json"
+            user_path = Path("./user/store") / f"{username}.json"
             
             if not user_path.exists():
                 return jsonify({"error": "User not found"}), 404
