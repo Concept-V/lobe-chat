@@ -22,7 +22,7 @@ class DeleteUser(Resource):
             if username == 'admin':
                 return jsonify({"error": "Cannot delete admin user"}), 403
 
-            user_path = Path("./store") / f"{username}.json"
+            user_path = Path("./user/store") / f"{username}.json"
             
             if not user_path.exists():
                 return jsonify({"error": "User not found"}), 404

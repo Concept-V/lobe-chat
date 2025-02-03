@@ -12,6 +12,7 @@ def handle_gateway():
     data_bytes = request.get_data()
     try:
         payload = json.loads(data_bytes.decode('utf-8'))
+        print(payload)
         arguments = json.loads(payload.get('arguments', {}))
         apiName = payload.get('apiName')
     except (json.JSONDecodeError, KeyError):
@@ -60,9 +61,10 @@ def handle_gateway():
         destination_path = arguments.get('destination_path')
         return MovePath.post(request, source_path, destination_path)
     
-    elif apiName == 'get_user':
+    elif apiName == 'get_get_user':
         username = arguments.get('username')
-        return GetUser.get(request, username)
+        password = arguments.get('password')
+        return GetUser.get(request, username, password)
     
     elif apiName == 'post_create_user':
         username = arguments.get('username')
@@ -73,28 +75,30 @@ def handle_gateway():
     
     elif apiName == 'post_update_user':
         username = arguments.get('username')
-        permissions = arguments.get('permissions')
-        return UpdateUser.post(request, username, permissions)
+        password = arguments.get('password')
+        permissions = arguments.get('permissions', None)
+        state = arguments.get('state', None)
+        return UpdateUser.post(request, username, password, permissions, state)
     
-    elif apiName == 'post_delete_user':
+    elif apiName == 'delete_delete_user':
         username = arguments.get('username')
-        return DeleteUser.post(request, username)
+        return DeleteUser.delete(request, username)
     
     elif apiName == 'get_permission':
         username = arguments.get('username')
         return GetPermission.get(request, username)
     
     elif apiName == 'get_logo':
-        return GetLogo.get(request)
+        return Logo.get(request)
     
     elif apiName == 'get_logo_black':
-        return GetLogoBlack.get(request)
+        return LogoBlack.get(request)
     
     elif apiName == 'get_manifest':
-        return GetManifest.get(request)
+        return Manifest.get(request)
     
     elif apiName == 'get_manifest_beta':
-        return GetManifestBeta.get(request)
+        return ManifestBeta.get(request)
 
     else:
         return jsonify({"error": "Method Not Allowed"}), 405

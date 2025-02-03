@@ -1,11 +1,11 @@
-from .manifest import GetManifest
-from .manifest_beta import GetManifestBeta
-from .logo import GetLogo
-from .logo_black import GetLogoBlack
+from .manifest import Manifest
+from .manifest_beta import ManifestBeta
+from .logo import Logo
+from .logo_black import LogoBlack
 
 __all__ = [
-    'GetManifest',
-    'GetManifestBeta',
-    'GetLogo',
-    'GetLogoBlack'
+    'Manifest',
+    'ManifestBeta',
+    'Logo',
+    'LogoBlack'
 ]

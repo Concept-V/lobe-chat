@@ -32,7 +32,7 @@ class UpdateUser(Resource):
             if username == 'admin':
                 return jsonify({"error": "Cannot update admin user"}), 403
 
-            user_path = Path("./store") / f"{username}.json"
+            user_path = Path("./user/store") / f"{username}.json"
             
             if not user_path.exists():
                 return jsonify({"error": "User not found"}), 404

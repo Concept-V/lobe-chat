@@ -8,6 +8,10 @@ import logging
 
 logger = logging.getLogger('user-server')
 
+@api.doc(
+    methods=['GET'],
+    description='Get a specific user information.'
+)
 class GetUser(Resource):
     @api.expect(get_user_model)
     @api.response(200, 'Success')
@@ -15,14 +19,14 @@ class GetUser(Resource):
     @api.response(401, 'Invalid credentials')
     @api.response(403, 'Account suspended')
     @api.response(404, 'User not found')
-    def post(self, username, password):
+    def get(self, username, password):
         try:
             # Check if username is provided
             if not username:
                 return jsonify({"error": "Username is required"}), 400
 
             # Construct path to user's JSON file
-            user_path = Path("./store") / f"{username}.json"
+            user_path = Path("./user/store") / f"{username}.json"
             
             # Check if user exists
             if not user_path.exists():

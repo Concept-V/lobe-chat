@@ -7,7 +7,7 @@ from models import api, get_logo_black_model
     methods=['GET'],
     description='This endpoint returns black logo.'
 )
-class GetLogoBlack(Resource):
+class LogoBlack(Resource):
     @api.expect(get_logo_black_model)
     def get(self):
         return send_from_directory('../static', 'logo_black.svg')

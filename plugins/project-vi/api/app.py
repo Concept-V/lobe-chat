@@ -36,16 +36,16 @@ ns.add_resource(MovePath, '/move_path', endpoint='post_move_path')
 
 # User management & Permissions
 ns.add_resource(GetUser, '/get_user', endpoint='get_user')
-ns.add_resource(CreateUser, '/create_user', endpoint='post_create_user')
-ns.add_resource(UpdateUser, '/update_user', endpoint='post_update_user')
-ns.add_resource(DeleteUser, '/delete_user', endpoint='post_delete_user')
+ns.add_resource(CreateUser, '/create_user', endpoint='create_user')
+ns.add_resource(UpdateUser, '/update_user', endpoint='update_user')
+ns.add_resource(DeleteUser, '/delete_user', endpoint='delete_user')
 ns.add_resource(GetPermission, '/get_permission', endpoint='get_permission')
 
 # Serving static files
-ns.add_resource(GetLogo, '/logo', endpoint='get_logo')
-ns.add_resource(GetLogoBlack, '/logo_black', endpoint='get_logo_black')
-ns.add_resource(GetManifest, '/manifest', endpoint='get_manifest')
-ns.add_resource(GetManifestBeta, '/manifest_beta', endpoint='get_manifest_beta')
+ns.add_resource(Logo, '/logo', endpoint='logo')
+ns.add_resource(LogoBlack, '/logo_black', endpoint='logo_black')
+ns.add_resource(Manifest, '/manifest', endpoint='manifest')
+ns.add_resource(ManifestBeta, '/manifest_beta', endpoint='manifest_beta')
 
 
 # Gateway
@@ -55,4 +55,4 @@ def serve_gateway():
 
 
 if __name__ == '__main__':
-    app.run(port=3400, debug=True)
+    app.run(port=3401, debug=True)

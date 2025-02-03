@@ -28,7 +28,7 @@ class CreateUser(Resource):
             if username == 'admin':
                 return jsonify({"error": "Cannot create admin user"}), 403
 
-            user_path = Path("./store") / f"{username}.json"
+            user_path = Path("./user/store") / f"{username}.json"
             
             if user_path.exists():
                 return jsonify({"error": "User already exists"}), 409
