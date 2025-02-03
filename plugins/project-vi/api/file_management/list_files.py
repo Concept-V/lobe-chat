@@ -6,7 +6,7 @@ from models import api, list_files_model
 
 @api.doc(
     methods=['GET'],
-    description='This endpoint lists files in specified directory. Expects a GET request',
+    description='This endpoint lists files in specified directory.',
     params={'directory': 'The directory to list files from'}
 )
 class ListFiles(Resource):

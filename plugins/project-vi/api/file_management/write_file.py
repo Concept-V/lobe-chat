@@ -6,7 +6,7 @@ from models import api, write_file_model
 
 @api.doc(
     methods=['POST'],
-    description='This endpoint writes a new file. Expects a POST request',
+    description='This endpoint writes a new file.',
     params={
         'file_path': 'The path of the file to write', 
         'content': 'The content to write into the file'

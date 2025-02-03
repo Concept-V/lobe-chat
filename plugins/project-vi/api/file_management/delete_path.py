@@ -7,7 +7,7 @@ from models import api, delete_model
 
 @api.doc(
     methods=['POST'],
-    description='This endpoint deletes a file or directory. Expects a POST request',
+    description='This endpoint deletes a file or directory.',
     params={
         'path': 'The path of the file or directory to delete',
         'recursive': 'Recursively delete directories'

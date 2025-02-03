@@ -6,7 +6,7 @@ from models import api, read_file_model
 
 @api.doc(
     methods=['GET'],
-    description='This endpoint reads an existing file content. Expects a GET request',
+    description='This endpoint reads an existing file content.',
     params={'file_path': 'The path of the file to read'}
 )
 class ReadFile(Resource):

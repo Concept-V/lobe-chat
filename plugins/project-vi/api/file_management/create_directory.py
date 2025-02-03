@@ -5,7 +5,7 @@ from models import api, create_directory_model
 
 @api.doc(
     methods=['POST'],
-    description='This endpoint creates a new directory. Expects a POST request',
+    description='This endpoint creates a new directory.',
     params={
         'directory_path': 'The path of the directory to create',
         'exist_ok': 'Do not raise an error if the directory already exists'

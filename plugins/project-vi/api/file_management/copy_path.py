@@ -7,7 +7,7 @@ from models import api, copy_model
 
 @api.doc(
     methods=['POST'],
-    description='This endpoint copies a file or directory. Expects a POST request',
+    description='This endpoint copies a file or directory.',
     params={
         'source_path': 'The path of the source file or directory',
         'destination_path': 'The destination path',
