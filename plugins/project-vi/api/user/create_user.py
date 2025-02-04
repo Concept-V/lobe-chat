@@ -4,7 +4,7 @@ import json
 import hashlib
 from pathlib import Path
 import logging
-from models import api, create_user_model
+from models import api, create_user_model, Permissions
 
 logger = logging.getLogger('user-server')
 
@@ -17,18 +17,23 @@ class CreateUser(Resource):
     @api.response(201, 'User created')
     @api.response(400, 'Bad Request')
     @api.response(409, 'User already exists')
-    def post(self, username, password, permissions, state='active'):
+    def post(self, username, password, permissions=None, state='active'):
         try:
             if not username:
                 return jsonify({"error": "Username is required"}), 400
             
+            if username == 'admin':
+                return jsonify({"error": "Cannot create admin user"}), 403
+            
             if not password:
                 return jsonify({"error": "Password is required"}), 400
             
-            if username == 'admin':
-                return jsonify({"error": "Cannot create admin user"}), 403
+            if permissions is None:
+                permissions = 0
+            else:
+                permissions = int(Permissions.give_permission_by_name(permissions))
 
-            user_path = Path("./user/store") / f"{username}.json"
+            user_path = Path("./user/store") / f"{username.lower()}.json"
             
             if user_path.exists():
                 return jsonify({"error": "User already exists"}), 409

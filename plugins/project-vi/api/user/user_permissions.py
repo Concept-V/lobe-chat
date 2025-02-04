@@ -9,7 +9,7 @@ import json
     methods=['GET'],
     description='Get user permissions'
 )
-class GetPermission(Resource):
+class UserPermission(Resource):
     @api.response(200, 'Success')
     @api.response(404, 'User not found')
     @api.response(500, 'Internal Server Error')

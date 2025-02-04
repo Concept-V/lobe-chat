@@ -36,3 +36,21 @@ class Permissions:
         if permissions == Permissions.ADMIN:
             names.append('admin')
         return names
+    
+    @staticmethod
+    def give_permission(user_permissions: int, permission: int) -> int:
+        return user_permissions | permission
+    
+    @staticmethod
+    def give_permission_by_name(permission_name: str) -> int:
+        permission_map = {
+            'none': Permissions.NONE,
+            'file': Permissions.FILE,
+            'sqlite': Permissions.SQLITE,
+            'obsidian': Permissions.OBSIDIAN,
+            'memory': Permissions.MEMORY,
+            'user': Permissions.USER,
+            'admin': Permissions.ADMIN
+        }
+        
+        return permission_map.get(permission_name)

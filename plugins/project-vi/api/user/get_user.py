@@ -1,7 +1,7 @@
 from flask_restx import Resource
 from flask import jsonify
 from pathlib import Path
-from models import api, get_user_model
+from models import api, get_user_model, Permissions
 import json
 import hashlib
 import logging
@@ -26,7 +26,7 @@ class GetUser(Resource):
                 return jsonify({"error": "Username is required"}), 400
 
             # Construct path to user's JSON file
-            user_path = Path("./user/store") / f"{username}.json"
+            user_path = Path("./user/store") / f"{username.lower()}.json"
             
             # Check if user exists
             if not user_path.exists():
@@ -53,7 +53,7 @@ class GetUser(Resource):
             # Return user data (excluding password)
             return jsonify({
                 "username": username,
-                "permissions": user_data.get('permissions', 0),
+                "permissions": user_data.get('permissions', Permissions.NONE),
                 "state": user_data.get('state', 'active')
             }), 200
 

@@ -4,7 +4,6 @@ from models import api
 from test.hello import Hello
 from file_management import *
 from user import *
-from permissions import *
 from mcp_tools import *
 from static import *
 from gateway.gateway import handle_gateway
@@ -38,7 +37,7 @@ ns.add_resource(GetUser, '/get_user', endpoint='get_user')
 ns.add_resource(CreateUser, '/create_user', endpoint='create_user')
 ns.add_resource(UpdateUser, '/update_user', endpoint='update_user')
 ns.add_resource(DeleteUser, '/delete_user', endpoint='delete_user')
-ns.add_resource(GetPermission, '/get_permission', endpoint='get_permission')
+ns.add_resource(UserPermission, '/user_permission', endpoint='get_user_permission')
 
 # MCP Tools
 ns.add_resource(AddObservations, '/add_observations', endpoint='add_observations')

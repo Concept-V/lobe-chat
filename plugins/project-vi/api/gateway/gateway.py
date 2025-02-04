@@ -2,7 +2,6 @@ from flask import request, jsonify
 from test.hello import Hello
 from file_management import *
 from user import *
-from permissions import *
 from static import *
 from mcp_tools import *
 import json
@@ -25,7 +24,7 @@ def get_api_handlers(req):
         "post_create_user": lambda args: CreateUser.post(req, args.get('username'), args.get('password'), args.get('permissions'), args.get('state', 'active')),
         "post_update_user": lambda args: UpdateUser.post(req, args.get('username'), args.get('password'), args.get('permissions', None), args.get('state', None)),
         "delete_delete_user": lambda args: DeleteUser.delete(req, args.get('username')),
-        "get_permission": lambda args: GetPermission.get(req, args.get('username')),
+        "get_user_permission": lambda args: UserPermission.get(req, args.get('username')),
         # mcp tools
         "post_add_observations": lambda args: AddObservations.post(req),
         "post_create_entities": lambda args: CreateEntities.post(req),
@@ -60,9 +59,9 @@ def handle_gateway():
     data_bytes = request.get_data()
     try:
         payload = json.loads(data_bytes.decode('utf-8'))
-        print(payload)
         arguments = json.loads(payload.get('arguments', {}))
         apiName = payload.get('apiName')
+        print(apiName)
 
         # Retrieve the API handlers and execute the matching function
         api_handlers = get_api_handlers(request)

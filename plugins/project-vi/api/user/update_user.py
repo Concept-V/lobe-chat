@@ -1,7 +1,7 @@
 from flask_restx import Resource
 from flask import jsonify
 from pathlib import Path
-from models import api, update_user_model
+from models import api, update_user_model, Permissions
 import hashlib
 import json
 import logging
@@ -32,7 +32,7 @@ class UpdateUser(Resource):
             if username == 'admin':
                 return jsonify({"error": "Cannot update admin user"}), 403
 
-            user_path = Path("./user/store") / f"{username}.json"
+            user_path = Path("./user/store") / f"{username.lower()}.json"
             
             if not user_path.exists():
                 return jsonify({"error": "User not found"}), 404
@@ -41,7 +41,8 @@ class UpdateUser(Resource):
                 user_data = json.load(f)
 
             if permissions is not None:
-                user_data['permissions'] = permissions
+                user_data['permissions'] = Permissions.give_permission_by_name(permissions)
+
             if state is not None:
                 user_data['state'] = state
 

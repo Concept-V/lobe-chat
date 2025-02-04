@@ -21,9 +21,8 @@ create_user_model = api.model('CreateUser', {
         required=True,
         description='Password'
     ),
-    'permissions': fields.Integer(
-        required=True,
-        description='User permissions as integer'
+    'permissions': fields.String(
+        description='User permissions as string'
     ),
     'state': fields.String(
         description='Account state',
@@ -41,8 +40,8 @@ update_user_model = api.model('UpdateUser', {
         required=True,
         description='Password'
     ),
-    'permissions': fields.Integer(
-        description='User permissions as integer'
+    'permissions': fields.String(
+        description='User permissions as string'
     ),
     'state': fields.String(
         description='Account state',
@@ -54,5 +53,9 @@ delete_user_model = api.model('DeleteUser', {
     'username': fields.String(
         required=True,
         description='Username to delete'
+    ),
+    'password': fields.String(
+        required=True,
+        description='Username password is required to delete user'
     )
 })
