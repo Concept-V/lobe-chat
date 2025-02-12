@@ -1,0 +1,84 @@
+name: lobe-chat-database
+services:
+  postgresql:
+    image: pgvector/pgvector:pg16
+    container_name: lobe-postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - './data:/var/lib/postgresql/data'
+    environment:
+      - 'POSTGRES_DB=${LOBE_DB_NAME}'
+      - 'POSTGRES_PASSWORD=${POSTGRES_PASSWORD}'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: always
+
+  minio:
+    image: minio/minio
+    container_name: lobe-minio
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - './s3_data:/etc/minio/data'
+    environment:
+      - 'MINIO_ROOT_USER=${MINIO_ROOT_USER}'
+      - 'MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}'
+      - 'MINIO_DOMAIN=${S3_PUBLIC_DOMAIN}'
+      - 'MINIO_API_CORS_ALLOW_ORIGIN=${MINIO_API_CORS_ALLOW_ORIGIN}' # Your LobeChat's domain name.
+    env_file:
+      - .env
+    restart: always
+    command: >
+      server /etc/minio/data --address ":9000" --console-address ":9001"
+
+  zitadel:
+    image: ghcr.io/zitadel/zitadel:latest
+    container_name: lobe-zitadel
+    ports:
+      - 8080:8080
+    volumes:
+      - ./zitadel-config.yaml:/zitadel-config.yaml:ro
+      - ./zitadel-init-steps.yaml:/zitadel-init-steps.yaml:ro
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    restart: always
+    command: start-from-init --config /zitadel-config.yaml --steps /zitadel-init-steps.yaml --masterkey "cft3Tekr/rQBOqwoQSCPoncA9BHbn7QJ" --tlsMode external #MasterkeyNeedsToHave32Characters
+
+  lobe:
+    # image: lobehub/lobe-chat-database
+    container_name: lobe-chat
+    ports:
+      - '3210:3210'
+    depends_on:
+      - postgresql
+      - minio
+      - zitadel
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.database
+    env_file:
+      - .env
+    restart: always
+
+  server:
+    container_name: python-api-server
+    ports:
+      - '${API_SERVER_PORT:-3400}:3400'
+    build:
+      context: ./plugins/project-vi
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./plugins/project-vi:/app
+    restart: always
+
+volumes:
+  data:
+    driver: local
+  s3_data:
+    driver: local
