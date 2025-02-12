@@ -1,0 +1,655 @@
+{
+  "entities": {
+    "AI Innovation": {
+      "type": "Concept",
+      "observations": [
+        "Advancements in AI technology are transforming industries.",
+        "This concept is pivotal for modern technology applications."
+      ],
+      "created_at": "2025-02-04T23:51:44.424185",
+      "updated_at": "2025-02-04T23:52:17.503147"
+    },
+    "Machine Learning": {
+      "type": "Concept",
+      "observations": ["Machine Learning is a subset of AI focusing on data-driven algorithms."],
+      "created_at": "2025-02-04T23:57:20.661042"
+    },
+    "Deep Learning": {
+      "type": "Concept",
+      "observations": ["Deep Learning uses neural networks and is a branch of Machine Learning."],
+      "created_at": "2025-02-04T23:57:20.661054"
+    },
+    "Neural Networks": {
+      "type": "Technology",
+      "observations": ["Neural Networks are used in Deep Learning to model complex patterns."],
+      "created_at": "2025-02-04T23:57:20.661056"
+    },
+    "Technical_Integration_Workshop": {
+      "type": "Workshop",
+      "observations": [
+        "Primary objective: Integrate session insights into interactive Obsidian vault",
+        "Focus on addressing individual attendee needs",
+        "Includes technical components like security protocols and semantic search"
+      ],
+      "created_at": "2025-02-05T06:07:51.746621"
+    },
+    "Neil": {
+      "type": "Participant",
+      "observations": [
+        "Interested in scalability and integration challenges",
+        "Requires specific focus on technical scaling solutions",
+        "Requires detailed technical documentation for scaling solutions",
+        "Interested in automation capabilities",
+        "Focus on enterprise-level implementation"
+      ],
+      "created_at": "2025-02-05T06:07:51.746643",
+      "updated_at": "2025-02-05T06:10:10.541084"
+    },
+    "Ian": {
+      "type": "Participant",
+      "observations": [
+        "Focus on practical workflow improvements",
+        "Interested in hands-on applications",
+        "Needs practical examples of workflow integration",
+        "Interested in day-to-day usage scenarios",
+        "Focus on efficiency improvements"
+      ],
+      "created_at": "2025-02-05T06:07:51.746646",
+      "updated_at": "2025-02-05T06:10:10.541098"
+    },
+    "Kelly_Ann": {
+      "type": "Participant",
+      "observations": [
+        "Primary concerns: security, compliance, and data privacy",
+        "Requires focus on protection mechanisms",
+        "Requires comprehensive security documentation",
+        "Interest in compliance frameworks",
+        "Focus on data protection mechanisms"
+      ],
+      "created_at": "2025-02-05T06:07:51.746647",
+      "updated_at": "2025-02-05T06:10:10.541101"
+    },
+    "Scott": {
+      "type": "Participant",
+      "observations": [
+        "Interest in architectural robustness",
+        "Focus on system interoperability",
+        "Needs architectural overview documentation",
+        "Interest in system integration patterns",
+        "Focus on technical robustness"
+      ],
+      "created_at": "2025-02-05T06:07:51.746650",
+      "updated_at": "2025-02-05T06:10:10.541103"
+    },
+    "Workshop_Action_Plan": {
+      "type": "Document",
+      "observations": [
+        "Contains workshop objectives and next steps",
+        "Details participant profiles and predicted questions",
+        "Includes exercise planning and facilitation guidelines"
+      ],
+      "created_at": "2025-02-05T06:07:51.746651"
+    },
+    "Workshop_Objectives": {
+      "type": "DocumentSection",
+      "observations": [
+        "Focus on integrating session insights into Obsidian vault",
+        "Ensure workshop sections address attendee needs",
+        "Emphasis on interactive components"
+      ],
+      "created_at": "2025-02-05T06:09:44.069612"
+    },
+    "Technical_Components": {
+      "type": "DocumentSection",
+      "observations": [
+        "Security protocols implementation",
+        "Knowledge bases integration",
+        "Agent configuration details",
+        "Workflow automation processes"
+      ],
+      "created_at": "2025-02-05T06:09:44.069622"
+    },
+    "Exercise_Plan": {
+      "type": "DocumentSection",
+      "observations": [
+        "Group and individual exercise designs",
+        "Realistic Hypha scenarios",
+        "Interactive components requiring laptops",
+        "Example documentation preparation"
+      ],
+      "created_at": "2025-02-05T06:09:44.069624"
+    },
+    "QA_Preparation": {
+      "type": "DocumentSection",
+      "observations": [
+        "Participant-specific question predictions",
+        "Prepared talking points for common queries",
+        "Focus areas by participant expertise"
+      ],
+      "created_at": "2025-02-05T06:09:44.069625"
+    },
+    "Memory Foundation": {
+      "type": "memory",
+      "observations": [
+        "Initiating foundational memory node integration.",
+        "Testing iterative self-improving and adaptive endpoint usage."
+      ],
+      "created_at": "2025-02-10T06:33:33.890583"
+    },
+    "Test Node for Relationship": {
+      "type": "memory",
+      "observations": ["Entity created for testing relationship mapping with Memory Foundation."],
+      "created_at": "2025-02-10T06:42:36.580054"
+    },
+    "Project Chimera": {
+      "type": "project",
+      "observations": [
+        "Centralized, modular, and provider-agnostic agentic system for internal use.",
+        "Integration includes LobeChat, Project Vi, LangGraph, LangChain, LangSmith, Open Interpreter, and external providers (OpenAI, Anthropic, Google Gemini, Perplexity).",
+        "Unified API Gateway with single JSON schema for requests/responses.",
+        "Workflow orchestration using LangGraph, incorporating components for multi-step, multi-agent tasks.",
+        "Implementing persistent, context-rich memory using memory endpoints.",
+        "Robust security, observability, and modularity principles guiding development."
+      ],
+      "created_at": "2025-02-10T09:06:07.534467"
+    },
+    "LobeChat": {
+      "type": "component",
+      "observations": [
+        "User interaction layer, utilizing Chimera's Unified API Gateway.",
+        "Integrated with Project Vi for file operations.",
+        "Acts as the UI for executing workflows and interacting with AI models."
+      ],
+      "created_at": "2025-02-10T09:06:34.919389"
+    },
+    "Project Vi": {
+      "type": "component",
+      "observations": [
+        "Handles file operations and logging for Project Chimera.",
+        "Provides persistent storage for execution logs and configurations.",
+        "Integrated as a tool for file-system level operations in workflows."
+      ],
+      "created_at": "2025-02-10T09:06:34.919404"
+    },
+    "LangGraph": {
+      "type": "component",
+      "observations": [
+        "Acts as the workflow engine managing multi-step tasks in Project Chimera.",
+        "Integrates with LLM providers and tool actions to orchestrate workflows.",
+        "Supports complex workflows including loops, branching, and parallel execution."
+      ],
+      "created_at": "2025-02-10T09:06:34.919406"
+    },
+    "LangChain": {
+      "type": "component",
+      "observations": [
+        "Provides the agent framework for Project Chimera.",
+        "Supports modular and interchangeable AI agents within workflows.",
+        "Aligns workflow execution with predefined agent roles."
+      ],
+      "created_at": "2025-02-10T09:06:34.919407"
+    },
+    "LangSmith": {
+      "type": "component",
+      "observations": [
+        "Provides observability and debugging tools for workflows.",
+        "Helps monitor and optimize agent interactions and workflow efficiency.",
+        "Integrated for insightful tracking of workflow behavior."
+      ],
+      "created_at": "2025-02-10T09:06:34.919409"
+    },
+    "Open Interpreter": {
+      "type": "component",
+      "observations": [
+        "Sandboxed code execution environment within Docker.",
+        "Integrated as a tool for executing custom scripts in workflows.",
+        "Ensures safe execution with guardrails to prevent harmful operations."
+      ],
+      "created_at": "2025-02-10T09:06:34.919412"
+    },
+    "OpenAI": {
+      "type": "provider",
+      "observations": [
+        "Provider of advanced language models, including GPT-3 and GPT-4.",
+        "Integrated via Project Chimera's Unified API Gateway for LLM services."
+      ],
+      "created_at": "2025-02-10T09:20:52.719232"
+    },
+    "Anthropic": {
+      "type": "provider",
+      "observations": [
+        "Provider of the Claude language models, focusing on user alignment and security.",
+        "Integrated via Project Chimera's Unified API Gateway for LLM services."
+      ],
+      "created_at": "2025-02-10T09:20:52.719243"
+    },
+    "Google Gemini": {
+      "type": "provider",
+      "observations": [
+        "Provider of Gemini models (e.g., Palm), focusing on multilingual capabilities and integration.",
+        "Integrated via Project Chimera's Unified API Gateway for LLM services."
+      ],
+      "created_at": "2025-02-10T09:20:52.719245"
+    },
+    "Perplexity": {
+      "type": "provider",
+      "observations": [
+        "Provider of dynamic and context-aware LLM models.",
+        "Integrated via Project Chimera's Unified API Gateway for exploratory AI services."
+      ],
+      "created_at": "2025-02-10T09:20:52.719246"
+    },
+    "Unified API Gateway": {
+      "type": "component",
+      "observations": [
+        "Central entry point for handling AI requests, abstracts provider-specific APIs.",
+        "Security and provider-selection configured via environment variables."
+      ],
+      "created_at": "2025-02-10T09:20:52.719247"
+    },
+    "Workflow Engine": {
+      "type": "component",
+      "observations": [
+        "Manages coordination of multi-step, agentic tasks using LangGraph.",
+        "Supports conditional execution, state management, and function calling.",
+        "Integrated with LangChain for agent framework support."
+      ],
+      "created_at": "2025-02-10T09:20:52.741212"
+    },
+    "Project Chimera - Memory System": {
+      "type": "component",
+      "observations": [
+        "Persistent memory system built on structured entities and relations.",
+        "Facilitates long-term context retention and adaptive agent outputs.",
+        "Uses endpoints for dynamic data integration and context-rich retrieval."
+      ],
+      "created_at": "2025-02-10T09:20:52.741229"
+    },
+    "LangGraph Agent Service": {
+      "type": "component",
+      "observations": [
+        "Primary service orchestrating Project Chimera workflows.",
+        "Hosts the Unified API Gateway and manages request routing.",
+        "Supports tool integrations and LLM provider abstraction.",
+        "Monitors workflow state, usage, and execution outcomes."
+      ],
+      "created_at": "2025-02-10T09:20:52.741231"
+    },
+    "Management Dashboard": {
+      "type": "component",
+      "observations": [
+        "Web-based interface for real-time monitoring and workflow management.",
+        "Provides visual editing tools for workflow structure and debugging.",
+        "Facilitates human-in-the-loop oversight of critical processes."
+      ],
+      "created_at": "2025-02-10T09:20:52.741233"
+    },
+    "Module Context Protocol (MCP)": {
+      "type": "concept",
+      "observations": [
+        "Potential future integration for standardized data access in workflows.",
+        "Allows connecting to external data sources using consistent methods."
+      ],
+      "created_at": "2025-02-10T09:20:52.741235"
+    },
+    "LangGraph Studio": {
+      "type": "component",
+      "observations": [
+        "Advanced GUI for developing and managing LangGraph workflows.",
+        "Allows visual inspection of workflow structure and real-time data flow.",
+        "Supports live debugging, interactive node configuration, and modular workflow design."
+      ],
+      "created_at": "2025-02-10T09:35:06.204662"
+    },
+    "Security Guardrails": {
+      "type": "concept",
+      "observations": [
+        "Security protocols and measures integrated into Project Chimera.",
+        "Encompasses container isolation, API key authentication, rate limiting, and user access controls.",
+        "Implemented in coordination with Docker configurations and Open Interpreter restrictions."
+      ],
+      "created_at": "2025-02-10T09:35:06.204677"
+    },
+    "Provider Abstraction Layer": {
+      "type": "component",
+      "observations": [
+        "Central component that abstracts complexities of integrating multiple LLM providers.",
+        "Maps unified requests to provider-specific calls, leveraging environment configuration for dynamic routing.",
+        "Ensures that all LLM interactions adhere to a standardized format for seamless switching and redundancy."
+      ],
+      "created_at": "2025-02-10T09:35:06.204679"
+    },
+    "Project Ajuna": {
+      "type": "project",
+      "observations": [
+        "Future development project focused on integrating cognitive architectures with Project Chimera.",
+        "Aims to enhance AI workflows through complex reasoning and adaptive memory systems.",
+        "To implement a hierarchical multi-agent framework with dynamic task allocation."
+      ],
+      "created_at": "2025-02-10T09:35:06.204680"
+    },
+    "Vector Store Integration": {
+      "type": "concept",
+      "observations": [
+        "Proposed enhancement to utilize a vector store for enriched, persistent memory.",
+        "Enables retrieval-augmented generation by storing contextual embeddings over time.",
+        "Supports long-term context awareness and improved information retrieval."
+      ],
+      "created_at": "2025-02-10T09:35:06.204682"
+    },
+    "Detailed Technical Documentation": {
+      "type": "documentation",
+      "observations": [
+        "Contains comprehensive design specifications, code examples, architectural diagrams, configuration guides, and design decision rationales.",
+        "Documents every component, API endpoint, integration detail, and technical insight discussed.",
+        "Linked to core components via relationships such as 'documents' and 'explains'."
+      ],
+      "created_at": "2025-02-10T11:09:18.960589"
+    },
+    "Code Examples & Snippets": {
+      "type": "documentation",
+      "observations": [
+        "A collection of fully detailed code snippets for implementation of Unified API Gateway, LangGraph workflows, Open Interpreter integration, and LobeChat provider setups.",
+        "Demonstrates sample functions, configuration files (requirements.txt, Dockerfiles, docker-compose.yml), and execution flows for agents.",
+        "Serves as practical, ready-to-run examples alongside abstract design notes."
+      ],
+      "created_at": "2025-02-10T11:09:18.960602"
+    },
+    "Design Rationale & Decisions": {
+      "type": "documentation",
+      "observations": [
+        "Contains the full reasoning behind design choices such as modularity, provider agnosticism, isolation via Docker, state persistence with LangGraph, and function calling integration.",
+        "Describes trade-offs (for example, between direct integration and proxy-based approaches) and outlines long-term extensibility plans.",
+        "Interlinked with all major components to explain the architecture in context."
+      ],
+      "created_at": "2025-02-10T11:09:18.960604"
+    },
+    "Fig": {
+      "type": "AI_Assistant",
+      "observations": [
+        "Personal AI assistant for Tim",
+        "Proactive and adaptive system",
+        "Designed for task management, research, and strategic support",
+        "Utilizes modular, self-improving architecture",
+        "Committed to continuous learning and context-aware interactions"
+      ],
+      "created_at": "2025-02-10T11:47:32.403184"
+    },
+    "Project_Chimera": {
+      "type": "System_Architecture",
+      "observations": [
+        "Foundational development framework",
+        "Enables dynamic knowledge graph construction",
+        "Supports modular AI system design",
+        "Focuses on persistent memory and contextual understanding"
+      ],
+      "created_at": "2025-02-10T11:47:32.403197"
+    }
+  },
+  "relations": [
+    {
+      "from": "Machine Learning",
+      "to": "AI Innovation",
+      "relationType": "isPartOf",
+      "created_at": "2025-02-04T23:57:20.705883"
+    },
+    {
+      "from": "Deep Learning",
+      "to": "Machine Learning",
+      "relationType": "isA",
+      "created_at": "2025-02-04T23:57:20.705897"
+    },
+    {
+      "from": "Neural Networks",
+      "to": "Deep Learning",
+      "relationType": "isTool",
+      "created_at": "2025-02-04T23:57:20.705899"
+    },
+    {
+      "from": "Workshop_Action_Plan",
+      "to": "Technical_Integration_Workshop",
+      "relationType": "DEFINES",
+      "created_at": "2025-02-05T06:08:03.506573"
+    },
+    {
+      "from": "Technical_Integration_Workshop",
+      "to": "Neil",
+      "relationType": "HAS_PARTICIPANT",
+      "created_at": "2025-02-05T06:08:03.506585"
+    },
+    {
+      "from": "Technical_Integration_Workshop",
+      "to": "Ian",
+      "relationType": "HAS_PARTICIPANT",
+      "created_at": "2025-02-05T06:08:03.506587"
+    },
+    {
+      "from": "Technical_Integration_Workshop",
+      "to": "Kelly_Ann",
+      "relationType": "HAS_PARTICIPANT",
+      "created_at": "2025-02-05T06:08:03.506588"
+    },
+    {
+      "from": "Technical_Integration_Workshop",
+      "to": "Scott",
+      "relationType": "HAS_PARTICIPANT",
+      "created_at": "2025-02-05T06:08:03.506589"
+    },
+    {
+      "from": "Workshop_Action_Plan",
+      "to": "Workshop_Objectives",
+      "relationType": "CONTAINS_SECTION",
+      "created_at": "2025-02-05T06:09:57.669428"
+    },
+    {
+      "from": "Workshop_Action_Plan",
+      "to": "Technical_Components",
+      "relationType": "CONTAINS_SECTION",
+      "created_at": "2025-02-05T06:09:57.669440"
+    },
+    {
+      "from": "Workshop_Action_Plan",
+      "to": "Exercise_Plan",
+      "relationType": "CONTAINS_SECTION",
+      "created_at": "2025-02-05T06:09:57.669441"
+    },
+    {
+      "from": "Workshop_Action_Plan",
+      "to": "QA_Preparation",
+      "relationType": "CONTAINS_SECTION",
+      "created_at": "2025-02-05T06:09:57.669442"
+    },
+    {
+      "from": "Workshop_Objectives",
+      "to": "Exercise_Plan",
+      "relationType": "INFLUENCES",
+      "created_at": "2025-02-05T06:09:57.669443"
+    },
+    {
+      "from": "Technical_Components",
+      "to": "Exercise_Plan",
+      "relationType": "SUPPORTS",
+      "created_at": "2025-02-05T06:09:57.669444"
+    },
+    {
+      "from": "Exercise_Plan",
+      "to": "QA_Preparation",
+      "relationType": "INFORMS",
+      "created_at": "2025-02-05T06:09:57.669446"
+    },
+    {
+      "from": "Memory Foundation",
+      "to": "Test Node for Relationship",
+      "relationType": "related",
+      "created_at": "2025-02-10T06:42:44.123594"
+    },
+    {
+      "from": "Project Chimera",
+      "to": "LobeChat",
+      "relationType": "incorporates",
+      "created_at": "2025-02-10T09:06:34.947769"
+    },
+    {
+      "from": "Project Chimera",
+      "to": "Project Vi",
+      "relationType": "incorporates",
+      "created_at": "2025-02-10T09:06:34.947786"
+    },
+    {
+      "from": "Project Chimera",
+      "to": "LangGraph",
+      "relationType": "incorporates",
+      "created_at": "2025-02-10T09:06:34.947787"
+    },
+    {
+      "from": "Project Chimera",
+      "to": "LangChain",
+      "relationType": "incorporates",
+      "created_at": "2025-02-10T09:06:34.947789"
+    },
+    {
+      "from": "Project Chimera",
+      "to": "LangSmith",
+      "relationType": "incorporates",
+      "created_at": "2025-02-10T09:06:34.947790"
+    },
+    {
+      "from": "Project Chimera",
+      "to": "Open Interpreter",
+      "relationType": "incorporates",
+      "created_at": "2025-02-10T09:06:34.947791"
+    },
+    {
+      "from": "Project Vi",
+      "to": "LangGraph Agent Service",
+      "relationType": "integrates",
+      "created_at": "2025-02-10T09:21:09.462140"
+    },
+    {
+      "from": "Open Interpreter",
+      "to": "LangGraph Agent Service",
+      "relationType": "integrates",
+      "created_at": "2025-02-10T09:21:09.462151"
+    },
+    {
+      "from": "Project Chimera",
+      "to": "Workflow Engine",
+      "relationType": "employs",
+      "created_at": "2025-02-10T09:21:09.462152"
+    },
+    {
+      "from": "Workflow Engine",
+      "to": "Project Chimera - Memory System",
+      "relationType": "stores",
+      "created_at": "2025-02-10T09:21:09.462154"
+    },
+    {
+      "from": "Management Dashboard",
+      "to": "LangGraph Agent Service",
+      "relationType": "monitors",
+      "created_at": "2025-02-10T09:21:09.462155"
+    },
+    {
+      "from": "Unified API Gateway",
+      "to": "OpenAI",
+      "relationType": "abstracts",
+      "created_at": "2025-02-10T09:21:09.478189"
+    },
+    {
+      "from": "Unified API Gateway",
+      "to": "Anthropic",
+      "relationType": "abstracts",
+      "created_at": "2025-02-10T09:21:09.478202"
+    },
+    {
+      "from": "Unified API Gateway",
+      "to": "Google Gemini",
+      "relationType": "abstracts",
+      "created_at": "2025-02-10T09:21:09.478204"
+    },
+    {
+      "from": "Unified API Gateway",
+      "to": "Perplexity",
+      "relationType": "abstracts",
+      "created_at": "2025-02-10T09:21:09.478205"
+    },
+    {
+      "from": "LangGraph",
+      "to": "LangGraph Agent Service",
+      "relationType": "hosts",
+      "created_at": "2025-02-10T09:21:09.478206"
+    },
+    {
+      "from": "LangChain",
+      "to": "LangGraph Agent Service",
+      "relationType": "integrates",
+      "created_at": "2025-02-10T09:21:09.487909"
+    },
+    {
+      "from": "LangSmith",
+      "to": "Management Dashboard",
+      "relationType": "supports",
+      "created_at": "2025-02-10T09:21:09.487920"
+    },
+    {
+      "from": "LangChain",
+      "to": "LangGraph",
+      "relationType": "coordinates",
+      "created_at": "2025-02-10T09:21:09.487921"
+    },
+    {
+      "from": "Management Dashboard",
+      "to": "Project Chimera - Memory System",
+      "relationType": "oversees",
+      "created_at": "2025-02-10T09:21:09.487922"
+    },
+    {
+      "from": "LangGraph",
+      "to": "Workflow Engine",
+      "relationType": "coordinates",
+      "created_at": "2025-02-10T09:21:09.487923"
+    },
+    {
+      "from": "LangGraph Studio",
+      "to": "LangGraph",
+      "relationType": "supports",
+      "created_at": "2025-02-10T09:35:19.047991"
+    },
+    {
+      "from": "Security Guardrails",
+      "to": "Open Interpreter",
+      "relationType": "constrains",
+      "created_at": "2025-02-10T09:35:19.048004"
+    },
+    {
+      "from": "Provider Abstraction Layer",
+      "to": "Unified API Gateway",
+      "relationType": "enhances",
+      "created_at": "2025-02-10T09:35:19.048005"
+    },
+    {
+      "from": "Project Ajuna",
+      "to": "Project Chimera",
+      "relationType": "builds_on",
+      "created_at": "2025-02-10T09:35:19.048006"
+    },
+    {
+      "from": "Vector Store Integration",
+      "to": "Project Chimera - Memory System",
+      "relationType": "augments",
+      "created_at": "2025-02-10T09:35:19.048127"
+    },
+    {
+      "from": "Fig",
+      "to": "Project_Chimera",
+      "relationType": "derives_from",
+      "created_at": "2025-02-10T11:47:37.317032"
+    },
+    {
+      "from": "Fig",
+      "to": "Project_Chimera",
+      "relationType": "implements",
+      "created_at": "2025-02-10T11:47:37.317046"
+    }
+  ]
+}

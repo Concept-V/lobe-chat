@@ -1,0 +1,207 @@
+{
+  "main": {
+    "id": "cc6b096f35bee2db",
+    "type": "split",
+    "children": [
+      {
+        "id": "9b463c527d216daa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "abdc67f22ec2c984",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "102764d9760bc2ec",
+    "type": "split",
+    "children": [
+      {
+        "id": "a8de29dbdae220ee",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7a3760de5f7c227f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "76882c8e662bb767",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "a15cbff1ab42c3ce",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "13228bd6397d8334",
+    "type": "split",
+    "children": [
+      {
+        "id": "2cddf47cedd08e7c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2f0adf10b7dd94d8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "427e07f0269dea3e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "1787c2547bac4d89",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "10e3026ca282b1f3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "abdc67f22ec2c984",
+  "lastOpenFiles": [
+    "Product/Untitled.md",
+    "Product/_ Initial Proposal.md",
+    "Product/Implications of Custom Platform Development with ConceptV and AI Technologies.md",
+    "Product/3 Custom Platform.md",
+    "Product/5 Timeline for Product Iterations.md",
+    "Product/4 Transition Plan.md",
+    "Product/2 Initial Product Offering.md",
+    "Product/1 General Product Features.md",
+    "Product/Product Features.md",
+    "Product/Initial Proposal.md",
+    "Product/Proposal Recommendations.md",
+    "Product/Timeline for Product Iterations.md",
+    "Product/Product Recommendations.md",
+    "Product/Transition Plan.md",
+    "Product/Initial Product Offering.md",
+    "Product",
+    "Post-Meeting Resources/Initial Product Offering Overview.md",
+    "Instructions/Workshop Action Plan & Next Steps.md",
+    "Instructions/Obsidian Presentation Suggestions for the Hypha Workshop.md",
+    "Instructions/Interactive Navigation & Vault Guide for the Workshop.md",
+    "Instructions/Workshop_Action_Plan.md",
+    "Instructions/Interactive_Navigation.md",
+    "Attendee Perspectives/Kelly-Ann.md",
+    "Attendee Perspectives/Neil.md",
+    "Attendee Perspectives/Scott.md",
+    "Attendee Perspectives/Ian.md",
+    "Attendee Perspectives",
+    "Post-Meeting Resources/Competitive Landscape of AI Usage in Hypha's Sector.md",
+    "Post-Meeting Resources",
+    "Attendee_Perspectives",
+    "Visual Resources/Vi_Icon.svg",
+    "Vi_Icon.svg",
+    "Visual Resources/ConceptV_Logo_White.svg",
+    "The Workshop",
+    "Visual Resources",
+    "Untitled",
+    "ConceptV_Logo_White.svg",
+    "Workshop/ConceptV-Solving-RealWorld-Problems",
+    "Instructions",
+    "Resources"
+  ]
+}
