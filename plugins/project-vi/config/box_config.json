@@ -1,0 +1,99 @@
+{
+  "components": {
+    "edge_unit_e1": {
+      "dimensions": {
+        "length": 100.0,
+        "width": 10.0,
+        "height": 10.0,
+        "tolerance": 0.05
+      },
+      "layers": {
+        "outer_shell_thickness": 1.25,
+        "outer_ring_thickness": 1.25,
+        "inner_ring_thickness": 1.25,
+        "central_void_diameter": 2.5
+      },
+      "connection_interface": {
+        "connector_type": "double_male_dovetail"
+      },
+      "connection_features": {
+        "face_grooves_width_faces": {
+          "count": 2,
+          "port_config_ref": "female_trapezoidal_port_config",
+          "locations": [
+            {
+              "face": "width_face_top",
+              "position": "centered",
+              "alignment": "lengthwise"
+            },
+            {
+              "face": "width_face_bottom",
+              "position": "centered",
+              "alignment": "lengthwise"
+            }
+          ]
+        }
+      },
+      "mechanisms": {
+        "spiral": {},
+        "linear_actuator": {},
+        "state_manager": {}
+      }
+    },
+    "node_unit_n1": {
+      "dimensions": {
+        "length": 100.0,
+        "width": 100.0,
+        "height": 10.0,
+        "tolerance": 0.1
+      },
+      "connection_interface": {
+        "connector_type": "double_male_dovetail"
+      },
+      "connection_features": {
+        "face_grooves_all_faces": {
+          "count": 4,
+          "port_config_ref": "female_trapezoidal_port_config",
+          "locations": [
+            {"face": "face1", "position": "centered", "alignment": "lengthwise"},
+            {"face": "face2", "position": "centered", "alignment": "lengthwise"},
+            {"face": "face3", "position": "centered", "alignment": "lengthwise"},
+            {"face": "face4", "position": "centered", "alignment": "lengthwise"}
+          ]
+        }
+      }
+    }
+  },
+  "connection_interfaces": {
+    "female_trapezoidal_port_config": {
+      "depth": 2.0,
+      "small_edge_width": 2.6,
+      "base_width": 6.6,
+      "height": 10.0,
+      "angle_degrees": 45.0
+    }
+  },
+  "mechanisms": {
+    "spiral_mechanism": {
+      "p_base": 20.0,
+      "delta_p": 10.0,
+      "radius": 2.0,
+      "thread_depth": 0.5,
+      "helix_length": 25.0,
+      "segments_per_rotation": 72,
+      "flank_angle_deg": 30.0,
+      "thread_crest_width": 1.0,
+      "thread_root_width": 0.5
+    },
+    "linear_actuator": {
+      "actuator_type": "inverted_thread",
+      "rod_radius": 1.0,
+      "rod_length": 20.0
+    },
+    "state_manager": {
+      "rotation_range_deg": 360.0,
+      "shaft_radius": 0.5,
+      "shaft_height": 10.0
+    }
+  }
+}

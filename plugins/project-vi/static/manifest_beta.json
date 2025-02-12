@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/@lobehub/chat-plugin-sdk/schema.json",
+  "api": [],
+  "author": "ConceptV",
+  "createdAt": "2025-01-31",
+  "gateway": "https://vi-4-api-test.ngrok.io/api/gateway",
+  "homepage": "https://www.conceptv.com.au/",
+  "identifier": "project-vi-beta",
+  "meta": {
+    "avatar": "https://vi-4-api-test.ngrok.io/api/logo",
+    "tags": ["file operation", "analyse", "codebase rewite"],
+    "title": "Project Vi (Beta)",
+    "description": "A multifunctional plugin created by ConceptV (Beta version)"
+  },
+  "openapi": "https://vi-4-api-test.ngrok.io/swagger.json",
+  "version": "1"
+}
