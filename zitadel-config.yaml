@@ -2,7 +2,7 @@ Log:
   Level: 'info'
 
 ExternalPort: 443 
-ExternalDomain: vi-4-auth.ngrok.io #Your zitadel's domain name
+ExternalDomain: vi-auth.conceptv.com.au #Your zitadel's domain name
 ExternalSecure: true 
 TLS:
   Enabled: true # ZITADEL_TLS_ENABLED

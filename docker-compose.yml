@@ -43,10 +43,12 @@ services:
       - 8080:8080
     volumes:
       - ./zitadel-config.yaml:/zitadel-config.yaml:ro
-      - ./zitadel-init-steps.yaml:/zitadel-init-steps.yaml:ro
+      - ./zitadel-init-steps.yaml:/zitadel- init-steps.yaml:ro
     depends_on:
       postgresql:
         condition: service_healthy
+    environment:
+      - ZITADEL_TLS_ALLOWED_ORIGINS=https://vi.conceptv.com.au,http://localhost:8080
     restart: always
     command: start-from-init --config /zitadel-config.yaml --steps /zitadel-init-steps.yaml --masterkey "cft3Tekr/rQBOqwoQSCPoncA9BHbn7QJ" --tlsMode external #MasterkeyNeedsToHave32Characters
 
