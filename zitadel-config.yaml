@@ -2,7 +2,7 @@ Log:
   Level: 'info'
 
 ExternalPort: 443 
-ExternalDomain: vi-auth.conceptv.com.au #Your zitadel's domain name
+ExternalDomain: vi-4-auth.ngrok.io #Your zitadel's domain name
 ExternalSecure: true 
 TLS:
   Enabled: true # ZITADEL_TLS_ENABLED
@@ -11,7 +11,7 @@ TLS:
 Database:
   postgres:
     Host: postgresql
-    Port: 5432
+    Port: 5433
     Database: zitadel
     User:
       Username: 'zitadel'

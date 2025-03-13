@@ -5,7 +5,7 @@
 export const LOBE_CHAT_CLOUD = 'Vi Cloud';
 
 export const BRANDING_NAME = 'Vi 5.0 (Preview)';
-export const BRANDING_LOGO_URL = 'https://vi-api.conceptv.com.au/api/logo';
+export const BRANDING_LOGO_URL = 'https://vi-4-api.ngrok.io/api/logo';
 
 export const ORG_NAME = 'ConceptV';
 
