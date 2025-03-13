@@ -15,6 +15,11 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    deploy:
+      resources:
+        reservations:
+          cpus: '2.0'
+          memory: 1G
     restart: always
 
   minio:
@@ -32,6 +37,11 @@ services:
       - 'MINIO_API_CORS_ALLOW_ORIGIN=${MINIO_API_CORS_ALLOW_ORIGIN}' # Your LobeChat's domain name.
     env_file:
       - .env
+    deploy:
+      resources:
+        reservations:
+          cpus: '1.0'
+          memory: 1G
     restart: always
     command: >
       server /etc/minio/data --address ":9000" --console-address ":9001"
@@ -49,6 +59,11 @@ services:
         condition: service_healthy
     environment:
       - ZITADEL_TLS_ALLOWED_ORIGINS=https://vi.conceptv.com.au,http://localhost:8080
+    deploy:
+      resources:
+        reservations:
+          cpus: '1.0'
+          memory: 1G
     restart: always
     command: start-from-init --config /zitadel-config.yaml --steps /zitadel-init-steps.yaml --masterkey "cft3Tekr/rQBOqwoQSCPoncA9BHbn7QJ" --tlsMode external #MasterkeyNeedsToHave32Characters
 
@@ -66,6 +81,11 @@ services:
       dockerfile: ./Dockerfile.database
     env_file:
       - .env
+    deploy:
+      resources:
+        reservations:
+          cpus: '2.0'
+          memory: 3G
     restart: always
 
   server:
@@ -77,6 +97,11 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - ./plugins/project-vi:/app
+    deploy:
+      resources:
+        reservations:
+          cpus: '2.0'
+          memory: 3G
     restart: always
 
 volumes:
